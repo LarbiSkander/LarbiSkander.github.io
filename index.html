@@ -1,0 +1,2029 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Skander Larbi | Portfolio for Russian Universities</title>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+		/>
+		<style>
+			:root {
+				--primary: #0066cc; /* ITMO Blue */
+				--secondary: #0a2647;
+				--accent: #00b4d8;
+				--light: #f8f9fa;
+				--dark: #121212;
+				--gray: #6c757d;
+				--success: #28a745;
+				--transition: all 0.3s ease;
+				--shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+				--border-radius: 10px;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+				font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+			}
+
+			html {
+				scroll-behavior: smooth;
+			}
+
+			body {
+				line-height: 1.6;
+				color: #333;
+				background-color: var(--light);
+			}
+
+			.container {
+				width: 90%;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 20px;
+			}
+
+			/* Header & Navigation */
+			header {
+				background: white;
+				box-shadow: var(--shadow);
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 1000;
+			}
+
+			nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 20px 0;
+			}
+
+			.logo {
+				font-size: 1.8rem;
+				font-weight: 700;
+				color: var(--primary);
+				display: flex;
+				align-items: center;
+			}
+
+			.logo i {
+				margin-right: 10px;
+				color: var(--accent);
+			}
+
+			.nav-links {
+				display: flex;
+				list-style: none;
+			}
+
+			.nav-links li {
+				margin-left: 30px;
+			}
+
+			.nav-links a {
+				text-decoration: none;
+				color: var(--secondary);
+				font-weight: 500;
+				transition: var(--transition);
+				position: relative;
+			}
+
+			.nav-links a:hover {
+				color: var(--primary);
+			}
+
+			.nav-links a::after {
+				content: "";
+				position: absolute;
+				width: 0;
+				height: 2px;
+				background: var(--primary);
+				left: 0;
+				bottom: -5px;
+				transition: var(--transition);
+			}
+
+			.nav-links a:hover::after {
+				width: 100%;
+			}
+
+			.language-switcher {
+				display: flex;
+				gap: 10px;
+				margin-left: 20px;
+			}
+
+			.lang-btn {
+				padding: 5px 10px;
+				border: 1px solid var(--gray);
+				border-radius: 5px;
+				background: white;
+				cursor: pointer;
+				transition: var(--transition);
+			}
+
+			.lang-btn.active {
+				background: var(--primary);
+				color: white;
+				border-color: var(--primary);
+			}
+
+			.mobile-menu {
+				display: none;
+				font-size: 1.5rem;
+				cursor: pointer;
+			}
+
+			/* Hero Section */
+			.hero {
+				padding: 150px 0 80px;
+				background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+				text-align: center;
+			}
+
+			.hero-content {
+				max-width: 800px;
+				margin: 0 auto;
+			}
+
+			.profile-img {
+				width: 200px;
+				height: 200px;
+				border-radius: 50%;
+				object-fit: cover;
+				border: 5px solid white;
+				box-shadow: var(--shadow);
+				margin-bottom: 30px;
+			}
+
+			.hero h1 {
+				font-size: 3rem;
+				margin-bottom: 10px;
+				color: var(--secondary);
+			}
+
+			.hero-subtitle {
+				font-size: 1.5rem;
+				color: var(--primary);
+				margin-bottom: 20px;
+			}
+
+			.hero p {
+				font-size: 1.1rem;
+				color: var(--gray);
+				margin-bottom: 30px;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			.cta-buttons {
+				display: flex;
+				justify-content: center;
+				gap: 20px;
+				margin-top: 30px;
+			}
+
+			.btn {
+				padding: 12px 30px;
+				border-radius: 30px;
+				text-decoration: none;
+				font-weight: 600;
+				transition: var(--transition);
+				display: inline-block;
+				border: 2px solid transparent;
+			}
+
+			.btn-primary {
+				background: var(--primary);
+				color: white;
+			}
+
+			.btn-primary:hover {
+				background: transparent;
+				border-color: var(--primary);
+				color: var(--primary);
+				transform: translateY(-3px);
+				box-shadow: var(--shadow);
+			}
+
+			.btn-secondary {
+				background: transparent;
+				border-color: var(--primary);
+				color: var(--primary);
+			}
+
+			.btn-secondary:hover {
+				background: var(--primary);
+				color: white;
+				transform: translateY(-3px);
+				box-shadow: var(--shadow);
+			}
+
+			/* Universities Section */
+			.universities {
+				padding: 80px 0;
+				background: white;
+			}
+
+			.section-title {
+				text-align: center;
+				margin-bottom: 50px;
+				color: var(--secondary);
+				position: relative;
+				font-size: 2.2rem;
+			}
+
+			.section-title::after {
+				content: "";
+				position: absolute;
+				width: 70px;
+				height: 4px;
+				background: var(--primary);
+				bottom: -10px;
+				left: 50%;
+				transform: translateX(-50%);
+				border-radius: 2px;
+			}
+
+			.university-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 30px;
+				margin-top: 40px;
+			}
+
+			.university-card {
+				background: white;
+				border-radius: var(--border-radius);
+				padding: 25px;
+				box-shadow: var(--shadow);
+				transition: var(--transition);
+				border-left: 5px solid var(--primary);
+			}
+
+			.university-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+			}
+
+			.university-card h3 {
+				color: var(--secondary);
+				margin-bottom: 10px;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.university-card h3 i {
+				color: var(--accent);
+			}
+
+			.university-rank {
+				display: inline-block;
+				background: var(--primary);
+				color: white;
+				padding: 3px 10px;
+				border-radius: 20px;
+				font-size: 0.8rem;
+				margin-bottom: 15px;
+			}
+
+			/* Projects Section */
+			.projects {
+				padding: 80px 0;
+				background: #f8f9fa;
+			}
+
+			.project-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+				gap: 30px;
+			}
+
+			.project-card {
+				background: white;
+				border-radius: var(--border-radius);
+				overflow: hidden;
+				box-shadow: var(--shadow);
+				transition: var(--transition);
+			}
+
+			.project-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+			}
+
+			.project-img {
+				width: 100%;
+				height: 200px;
+				object-fit: cover;
+				background: linear-gradient(45deg, var(--primary), var(--accent));
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				font-size: 3rem;
+			}
+
+			.project-content {
+				padding: 25px;
+			}
+
+			.project-tech {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 8px;
+				margin: 15px 0;
+			}
+
+			.tech-tag {
+				background: #e9ecef;
+				padding: 5px 12px;
+				border-radius: 20px;
+				font-size: 0.85rem;
+				color: var(--secondary);
+			}
+
+			.project-links {
+				display: flex;
+				gap: 15px;
+				margin-top: 20px;
+			}
+
+			.project-link {
+				display: flex;
+				align-items: center;
+				gap: 5px;
+				text-decoration: none;
+				color: var(--primary);
+				font-weight: 500;
+			}
+
+			.project-link:hover {
+				color: var(--accent);
+			}
+
+			/* Skills Section */
+			.skills {
+				padding: 80px 0;
+				background: white;
+			}
+
+			.skills-container {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 40px;
+			}
+
+			.skill-category h3 {
+				margin-bottom: 20px;
+				color: var(--secondary);
+				display: flex;
+				align-items: center;
+				gap: 10px;
+			}
+
+			.skill-item {
+				margin-bottom: 20px;
+			}
+
+			.skill-header {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 5px;
+			}
+
+			.skill-bar {
+				height: 10px;
+				background: #e9ecef;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+
+			.skill-progress {
+				height: 100%;
+				background: linear-gradient(90deg, var(--primary), var(--accent));
+				border-radius: 5px;
+				width: 0;
+				transition: width 1.5s ease-in-out;
+			}
+
+			/* Certificates Section */
+			.certificates {
+				padding: 80px 0;
+				background: #f8f9fa;
+			}
+
+			.certificate-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 25px;
+			}
+
+			.certificate-card {
+				background: white;
+				border-radius: var(--border-radius);
+				padding: 20px;
+				box-shadow: var(--shadow);
+				transition: var(--transition);
+				text-align: center;
+			}
+
+			.certificate-card:hover {
+				transform: translateY(-5px);
+			}
+
+			.certificate-icon {
+				font-size: 2.5rem;
+				color: var(--primary);
+				margin-bottom: 15px;
+			}
+
+			.certificate-count {
+				font-size: 2rem;
+				font-weight: 700;
+				color: var(--secondary);
+				margin-bottom: 10px;
+			}
+
+			/* Motivation Section */
+			.motivation {
+				padding: 80px 0;
+				background: white;
+			}
+
+			.motivation-content {
+				max-width: 800px;
+				margin: 0 auto;
+				text-align: center;
+			}
+
+			.quote {
+				font-size: 1.2rem;
+				font-style: italic;
+				color: var(--secondary);
+				border-left: 4px solid var(--primary);
+				padding-left: 20px;
+				margin: 30px 0;
+				text-align: left;
+			}
+
+			/* Contact Section */
+			.contact {
+				padding: 80px 0;
+				background: var(--secondary);
+				color: white;
+			}
+
+			.contact-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 40px;
+			}
+
+			.contact-info h3 {
+				margin-bottom: 20px;
+				color: white;
+			}
+
+			.contact-item {
+				display: flex;
+				align-items: center;
+				gap: 15px;
+				margin-bottom: 20px;
+			}
+
+			.contact-item i {
+				color: var(--accent);
+				font-size: 1.2rem;
+			}
+
+			.social-links {
+				display: flex;
+				gap: 15px;
+				margin-top: 30px;
+			}
+
+			.social-link {
+				width: 40px;
+				height: 40px;
+				border-radius: 50%;
+				background: rgba(255, 255, 255, 0.1);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: white;
+				text-decoration: none;
+				transition: var(--transition);
+			}
+
+			.social-link:hover {
+				background: var(--accent);
+				transform: translateY(-3px);
+			}
+
+			/* Footer */
+			footer {
+				background: var(--dark);
+				color: white;
+				text-align: center;
+				padding: 30px 0;
+			}
+
+			/* Responsive Design */
+			@media (max-width: 768px) {
+				.nav-links {
+					display: none;
+				}
+
+				.mobile-menu {
+					display: block;
+				}
+
+				.hero h1 {
+					font-size: 2.2rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.2rem;
+				}
+
+				.cta-buttons {
+					flex-direction: column;
+					align-items: center;
+				}
+
+				.section-title {
+					font-size: 1.8rem;
+				}
+			}
+
+			/* Animation Classes */
+			.animate-on-scroll {
+				opacity: 0;
+				transform: translateY(30px);
+				transition: opacity 0.8s ease, transform 0.8s ease;
+			}
+
+			.animate-on-scroll.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			/* ==================== MOBILE RESPONSIVE FIXES ==================== */
+
+			@media (max-width: 992px) {
+				.container {
+					width: 95%;
+					padding: 0 15px;
+				}
+
+				.nav-links {
+					position: fixed;
+					top: 80px;
+					left: 0;
+					width: 100%;
+					background: white;
+					flex-direction: column;
+					align-items: center;
+					padding: 20px 0;
+					box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+					display: none;
+					z-index: 999;
+				}
+
+				.nav-links.active {
+					display: flex;
+				}
+
+				.nav-links li {
+					margin: 15px 0;
+				}
+
+				.mobile-menu {
+					display: block;
+					font-size: 1.5rem;
+					cursor: pointer;
+					color: var(--primary);
+				}
+
+				.language-switcher {
+					margin-left: auto;
+					margin-right: 20px;
+				}
+
+				.logo {
+					font-size: 1.5rem;
+				}
+
+				nav {
+					padding: 15px 0;
+				}
+
+				.hero {
+					padding: 120px 0 50px;
+				}
+
+				.hero h1 {
+					font-size: 2.2rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1.2rem;
+				}
+
+				.hero p {
+					font-size: 1rem;
+					padding: 0 10px;
+				}
+
+				.profile-img {
+					width: 150px;
+					height: 150px;
+				}
+
+				.section-title {
+					font-size: 1.8rem;
+					padding: 0 10px;
+				}
+			}
+
+			@media (max-width: 768px) {
+				.university-grid {
+					grid-template-columns: 1fr;
+					gap: 20px;
+				}
+
+				.project-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.skills-container {
+					grid-template-columns: 1fr;
+				}
+
+				.certificate-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 15px;
+				}
+
+				.cta-buttons {
+					flex-direction: column;
+					align-items: center;
+					gap: 15px;
+				}
+
+				.btn {
+					width: 90%;
+					text-align: center;
+				}
+
+				.contact-grid {
+					grid-template-columns: 1fr;
+					gap: 30px;
+				}
+
+				.university-card,
+				.project-card,
+				.certificate-card {
+					padding: 20px;
+				}
+
+				.project-img {
+					height: 150px;
+				}
+			}
+
+			@media (max-width: 576px) {
+				.container {
+					width: 100%;
+					padding: 0 10px;
+				}
+
+				.certificate-grid {
+					grid-template-columns: 1fr;
+				}
+
+				.hero h1 {
+					font-size: 1.8rem;
+				}
+
+				.hero-subtitle {
+					font-size: 1rem;
+				}
+
+				.section-title {
+					font-size: 1.5rem;
+				}
+
+				.university-card h3 {
+					font-size: 1.2rem;
+				}
+
+				.project-content h3 {
+					font-size: 1.3rem;
+				}
+
+				.certificate-card h3 {
+					font-size: 1.2rem;
+				}
+
+				footer p {
+					font-size: 0.9rem;
+					padding: 0 10px;
+				}
+
+				.language-switcher {
+					gap: 5px;
+				}
+
+				.lang-btn {
+					padding: 4px 8px;
+					font-size: 0.9rem;
+				}
+			}
+
+			/* Fix for very small phones */
+			@media (max-width: 380px) {
+				.logo {
+					font-size: 1.2rem;
+				}
+
+				.profile-img {
+					width: 120px;
+					height: 120px;
+				}
+
+				.hero h1 {
+					font-size: 1.6rem;
+				}
+
+				.project-links {
+					flex-direction: column;
+					gap: 10px;
+				}
+
+				.project-link {
+					justify-content: center;
+				}
+			}
+
+			/* Fix for header on mobile */
+			header {
+				position: fixed;
+				width: 100%;
+				top: 0;
+				z-index: 1000;
+				background: white;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+			}
+
+			nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				min-height: 70px;
+			}
+
+			/* Prevent horizontal scrolling */
+			body {
+				overflow-x: hidden;
+				max-width: 100%;
+			}
+
+			/* Fix for mobile menu animation */
+			.nav-links {
+				transition: all 0.3s ease;
+			}
+
+			/* Make sure content doesn't hide under fixed header */
+			section {
+				scroll-margin-top: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Header & Navigation -->
+		<header>
+			<div class="container">
+				<nav>
+					<div class="logo">
+						<i class="fas fa-code"></i>
+						Skander Larbi
+					</div>
+					<ul class="nav-links">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#universities">Universities</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#skills">Skills</a></li>
+						<li><a href="#certificates">Certificates</a></li>
+						<li><a href="#motivation">Motivation</a></li>
+						<li><a href="#contact">Contact</a></li>
+					</ul>
+					<div class="language-switcher">
+						<button class="lang-btn active">EN</button>
+						<button class="lang-btn">RU</button>
+					</div>
+					<div class="mobile-menu">
+						<i class="fas fa-bars"></i>
+					</div>
+				</nav>
+			</div>
+		</header>
+
+		<!-- Hero Section -->
+		<section id="home" class="hero">
+			<div class="container">
+				<div class="hero-content animate-on-scroll">
+					<img src="picofme.png" alt="Skander Larbi" class="profile-img" />
+					<h1>Skander Larbi</h1>
+					<div class="hero-subtitle">
+						Future Computer Science Student | Aspiring Russian University
+						Applicant
+					</div>
+					<p>
+						Tunisian high school graduate specializing in computer science with
+						15+ professional certifications. Passionate about technology and
+						Russian culture, applying to top Russian universities for Bachelor's
+						in Computer Science.
+					</p>
+					<div class="cta-buttons">
+						<a href="#projects" class="btn btn-primary">View My Projects</a>
+						<a href="#contact" class="btn btn-secondary">Contact Me</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Universities Section -->
+		<section id="universities" class="universities">
+			<div class="container">
+				<h2 class="section-title">Target Russian Universities</h2>
+				<div class="university-grid">
+					<div class="university-card animate-on-scroll">
+						<span class="university-rank">#1 Choice</span>
+						<h3><i class="fas fa-university"></i> ITMO University</h3>
+						<p>
+							Saint Petersburg | World leader in computer science and photonics
+						</p>
+						<p><strong>Program:</strong> Bachelor in Computer Science</p>
+					</div>
+					<div class="university-card animate-on-scroll">
+						<span class="university-rank">#2 Choice</span>
+						<h3><i class="fas fa-university"></i> HSE University Moscow</h3>
+						<p>Moscow | Top social sciences & computer science university</p>
+						<p><strong>Program:</strong> Data Science and Business Analytics</p>
+					</div>
+					<div class="university-card animate-on-scroll">
+						<span class="university-rank">#3 Choice</span>
+						<h3>
+							<i class="fas fa-university"></i> Saint Petersburg State
+							University
+						</h3>
+						<p>
+							Saint Petersburg | One of Russia's oldest and most prestigious
+						</p>
+						<p>
+							<strong>Program:</strong> Applied Mathematics and Computer Science
+						</p>
+					</div>
+					<div class="university-card animate-on-scroll">
+						<h3>
+							<i class="fas fa-university"></i> Moscow Institute of Physics and
+							Technology
+						</h3>
+						<p>Moscow | Leading physics and technology research center</p>
+						<p><strong>Program:</strong> Computer Science and Engineering</p>
+					</div>
+					<div class="university-card animate-on-scroll">
+						<h3><i class="fas fa-university"></i> Kazan Federal University</h3>
+						<p>Kazan | Top university in Volga region</p>
+						<p><strong>Program:</strong> Software Engineering</p>
+					</div>
+					<div class="university-card animate-on-scroll">
+						<h3>
+							<i class="fas fa-university"></i> Kazan National Research
+							Technological University
+						</h3>
+						<p>Kazan | Specialized in technology and innovation</p>
+						<p>
+							<strong>Program:</strong> Information Systems and Technologies
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Projects Section -->
+		<section id="projects" class="projects">
+			<div class="container">
+				<h2 class="section-title">My Projects</h2>
+				<div class="project-grid">
+					<div class="project-card animate-on-scroll">
+						<div class="project-img">
+							<i class="fas fa-exchange-alt"></i>
+						</div>
+						<div class="project-content">
+							<h3>Number System Converter</h3>
+							<p>
+								A web application that converts between binary, octal, decimal,
+								and hexadecimal number systems with real-time updates and
+								validation.
+							</p>
+							<div class="project-tech">
+								<span class="tech-tag">HTML</span>
+								<span class="tech-tag">CSS</span>
+								<span class="tech-tag">JavaScript</span>
+								<span class="tech-tag">Responsive Design</span>
+							</div>
+							<div class="project-links">
+								<a
+									href="https://larbiskander.github.io/number-system-converter/numberconvert.html"
+									class="project-link"
+									target="_blank"
+								>
+									<i class="fas fa-external-link-alt"></i> Live Demo
+								</a>
+								<a
+									href="https://github.com/LarbiSkander/number-system-converter"
+									class="project-link"
+									target="_blank"
+								>
+									<i class="fab fa-github"></i> GitHub
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="project-card animate-on-scroll">
+						<div class="project-img">
+							<i class="fas fa-graduation-cap"></i>
+						</div>
+						<div class="project-content">
+							<h3>Study Hub</h3>
+							<p>
+								Educational web application featuring top 3 revision websites
+								for school exams with organized resources, progress tracking,
+								and study tools.
+							</p>
+							<div class="project-tech">
+								<span class="tech-tag">HTML</span>
+								<span class="tech-tag">CSS</span>
+								<span class="tech-tag">JavaScript</span>
+								<span class="tech-tag">UI/UX Design</span>
+							</div>
+							<div class="project-links">
+								<a
+									href="https://larbiskander.github.io/studyhub/"
+									class="project-link"
+									target="_blank"
+								>
+									<i class="fas fa-external-link-alt"></i> Live Demo
+								</a>
+								<a
+									href="https://github.com/LarbiSkander/studyhub/blob/main/index.html"
+									class="project-link"
+									target="_blank"
+								>
+									<i class="fab fa-github"></i> GitHub
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="project-card animate-on-scroll">
+						<div class="project-img">
+							<i class="fas fa-robot"></i>
+						</div>
+						<div class="project-content">
+							<h3>Chatfuel Chatbot Project</h3>
+							<p>
+								Lead generation chatbot created during Coursera certification,
+								demonstrating automation and AI integration skills.
+							</p>
+							<div class="project-tech">
+								<span class="tech-tag">Chatfuel</span>
+								<span class="tech-tag">Automation</span>
+								<span class="tech-tag">AI Integration</span>
+								<span class="tech-tag">Digital Marketing</span>
+							</div>
+							<div class="project-links">
+								<a
+									href="https://coursera.org/verify/T4O3L0SIK4FN"
+									class="project-link"
+									target="_blank"
+								>
+									<i class="fas fa-certificate"></i> View Certificate
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Skills Section -->
+		<section id="skills" class="skills">
+			<div class="container">
+				<h2 class="section-title">Technical Skills</h2>
+				<div class="skills-container">
+					<div class="skill-category animate-on-scroll">
+						<h3><i class="fas fa-code"></i> Programming</h3>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>Python</span>
+								<span>90%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="90"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>HTML/CSS</span>
+								<span>95%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="95"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>JavaScript</span>
+								<span>80%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="80"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>SQL</span>
+								<span>75%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="75"></div>
+							</div>
+						</div>
+					</div>
+					<div class="skill-category animate-on-scroll">
+						<h3><i class="fas fa-tools"></i> Tools & Platforms</h3>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>WordPress & SEO</span>
+								<span>85%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="85"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>Canva Design</span>
+								<span>90%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="90"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>Power Automate</span>
+								<span>80%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="80"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>Git Version Control</span>
+								<span>70%</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="70"></div>
+							</div>
+						</div>
+					</div>
+					<div class="skill-category animate-on-scroll">
+						<h3><i class="fas fa-language"></i> Languages</h3>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>English</span>
+								<span>B2 Level</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="80"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>Russian</span>
+								<span>A1 Level (Learning)</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="30"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>Arabic (Native)</span>
+								<span>Native Speaker</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="100"></div>
+							</div>
+						</div>
+						<div class="skill-item">
+							<div class="skill-header">
+								<span>French</span>
+								<span>Intermediate</span>
+							</div>
+							<div class="skill-bar">
+								<div class="skill-progress" data-width="60"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Certificates Section -->
+		<section id="certificates" class="certificates">
+			<div class="container">
+				<h2 class="section-title">Certifications & Achievements</h2>
+				<div class="certificate-grid">
+					<div class="certificate-card animate-on-scroll">
+						<div class="certificate-icon">
+							<i class="fas fa-laptop-code"></i>
+						</div>
+						<div class="certificate-count">8</div>
+						<h3>Coursera Certificates</h3>
+						<p>Python, Game Development, SEO, Chatbots, 3D Modeling</p>
+					</div>
+					<div class="certificate-card animate-on-scroll">
+						<div class="certificate-icon">
+							<i class="fas fa-home"></i>
+						</div>
+						<div class="certificate-count">3</div>
+						<h3>Русский Дом Events</h3>
+						<p>Russian culture workshops and round tables</p>
+					</div>
+					<div class="certificate-card animate-on-scroll">
+						<div class="certificate-icon">
+							<i class="fas fa-trophy"></i>
+						</div>
+						<div class="certificate-count">2</div>
+						<h3>National Competitions</h3>
+						<p>Technological projects & IT competitions</p>
+					</div>
+					<div class="certificate-card animate-on-scroll">
+						<div class="certificate-icon">
+							<i class="fas fa-certificate"></i>
+						</div>
+						<div class="certificate-count">2</div>
+						<h3>GoMyCode Workshops</h3>
+						<p>Python, Soft Skills & Marketing</p>
+					</div>
+					<div class="certificate-card animate-on-scroll">
+						<div class="certificate-icon">
+							<i class="fas fa-handshake"></i>
+						</div>
+						<h3>Recommendation Letter</h3>
+						<p>
+							From President of Tunisian Association of Russian Language
+							Teachers
+						</p>
+					</div>
+					<div class="certificate-card animate-on-scroll">
+						<div class="certificate-icon">
+							<i class="fas fa-globe"></i>
+						</div>
+						<h3>International Project</h3>
+						<p>"Tunisia: Digital Innovation Era" with Penza State University</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Motivation Section -->
+		<section id="motivation" class="motivation">
+			<div class="container">
+				<h2 class="section-title">My Motivation</h2>
+				<div class="motivation-content animate-on-scroll">
+					<p>
+						I am passionate about computer science because it represents the
+						future of innovation and problem-solving. The ability to create
+						solutions that can impact millions of people drives my interest in
+						this field.
+					</p>
+
+					<div class="quote">
+						"I chose Russia for my higher education because of its
+						world-renowned technical universities, strong mathematical
+						foundation in education, and unique approach to computer science
+						that combines theoretical depth with practical application."
+					</div>
+
+					<p>
+						Russia's education system has produced some of the world's top
+						programmers and scientists. I am particularly drawn to the Russian
+						approach to algorithm development and system design. My goal is to
+						contribute to the field of artificial intelligence and software
+						engineering, creating innovative solutions for global challenges.
+					</p>
+
+					<p>
+						My experience with Russian culture through Русский Дом events and my
+						Russian language studies have further solidified my decision to
+						pursue my education in Russia. I believe that studying in Russia
+						will not only provide me with excellent technical skills but also a
+						unique cultural perspective that will shape me into a
+						globally-minded professional.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Contact Section -->
+		<section id="contact" class="contact">
+			<div class="container">
+				<h2 class="section-title" style="color: white">Contact Information</h2>
+				<div class="contact-grid">
+					<div class="contact-info animate-on-scroll">
+						<h3>Get In Touch</h3>
+						<div class="contact-item">
+							<i class="fas fa-envelope"></i>
+							<div>
+								<strong>Email</strong>
+								<p>arbiiskandar781@gmail.com</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<i class="fas fa-phone"></i>
+							<div>
+								<strong>Phone</strong>
+								<p>+216 92 581 279</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<i class="fas fa-map-marker-alt"></i>
+							<div>
+								<strong>Location</strong>
+								<p>El Mourouj 3, Tunis, Tunisia</p>
+							</div>
+						</div>
+						<div class="contact-item">
+							<i class="fas fa-graduation-cap"></i>
+							<div>
+								<strong>Education</strong>
+								<p>Secondary School Diploma in Computer Science</p>
+							</div>
+						</div>
+
+						<div class="social-links">
+							<a
+								href="https://github.com/LarbiSkander"
+								class="social-link"
+								title="GitHub"
+							>
+								<i class="fab fa-github"></i>
+							</a>
+							<a
+								href="https://www.linkedin.com/in/iskandar-arbi-3aa9aa39b/"
+								class="social-link"
+								title="LinkedIn"
+							>
+								<i class="fab fa-linkedin-in"></i>
+							</a>
+							<a
+								href="https://t.me/LarbiSkander"
+								class="social-link"
+								title="Telegram"
+							>
+								<i class="fab fa-telegram-plane"></i>
+							</a>
+							<a
+								href="https://www.coursera.org/user/f40f14086c48c95d4b06c89ae71796c1"
+								class="social-link"
+								title="Coursera"
+							>
+								<i class="fas fa-certificate"></i>
+							</a>
+						</div>
+					</div>
+
+					<div class="contact-form animate-on-scroll">
+						<h3>Quick Message</h3>
+						<form id="contactForm" style="margin-top: 20px">
+							<div style="margin-bottom: 15px">
+								<input
+									type="text"
+									placeholder="Your Name"
+									required
+									style="
+										width: 100%;
+										padding: 12px;
+										border-radius: 5px;
+										border: none;
+										background: rgba(255, 255, 255, 0.1);
+										color: white;
+									"
+								/>
+							</div>
+							<div style="margin-bottom: 15px">
+								<input
+									type="email"
+									placeholder="Your Email"
+									required
+									style="
+										width: 100%;
+										padding: 12px;
+										border-radius: 5px;
+										border: none;
+										background: rgba(255, 255, 255, 0.1);
+										color: white;
+									"
+								/>
+							</div>
+							<div style="margin-bottom: 15px">
+								<textarea
+									placeholder="Your Message"
+									rows="4"
+									required
+									style="
+										width: 100%;
+										padding: 12px;
+										border-radius: 5px;
+										border: none;
+										background: rgba(255, 255, 255, 0.1);
+										color: white;
+										resize: vertical;
+									"
+								></textarea>
+							</div>
+							<button type="submit" class="btn btn-primary" style="width: 100%">
+								Send Message
+							</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer -->
+		<footer>
+			<div class="container">
+				<p>© 2025 Skander Larbi. All rights reserved.</p>
+				<p>Portfolio for Russian University Applications</p>
+				<p style="margin-top: 10px; font-size: 0.9rem; opacity: 0.8">
+					<i class="fas fa-heart" style="color: #ff4757"></i> Made with passion
+					for computer science and Russian education
+				</p>
+			</div>
+		</footer>
+
+		<script>
+			// Mobile menu toggle
+			document
+				.querySelector(".mobile-menu")
+				.addEventListener("click", function () {
+					const navLinks = document.querySelector(".nav-links");
+					navLinks.style.display =
+						navLinks.style.display === "flex" ? "none" : "flex";
+				});
+
+			// Language switcher
+			// ==================== RUSSIAN TRANSLATION ====================
+			// Translation dictionary
+			const translations = {
+				en: {
+					// Navigation
+					nav_home: "Home",
+					nav_universities: "Universities",
+					nav_projects: "Projects",
+					nav_skills: "Skills",
+					nav_certificates: "Certificates",
+					nav_motivation: "Motivation",
+					nav_contact: "Contact",
+
+					// Hero section
+					hero_title: "Skander Larbi",
+					hero_subtitle:
+						"Future Computer Science Student | Aspiring Russian University Applicant",
+					hero_description:
+						"Tunisian high school graduate specializing in computer science with 15+ professional certifications. Passionate about technology and Russian culture, applying to top Russian universities for Bachelor's in Computer Science.",
+					btn_view_projects: "View My Projects",
+					btn_contact_me: "Contact Me",
+
+					// Universities
+					universities_title: "Target Russian Universities",
+					choice_1: "#1 Choice",
+					choice_2: "#2 Choice",
+					choice_3: "#3 Choice",
+					itmo_desc:
+						"Saint Petersburg | World leader in computer science and photonics",
+					itmo_program: "Bachelor in Computer Science",
+					hse_desc:
+						"Moscow | Top social sciences & computer science university",
+					hse_program: "Data Science and Business Analytics",
+					spbu_desc:
+						"Saint Petersburg | One of Russia's oldest and most prestigious",
+					spbu_program: "Applied Mathematics and Computer Science",
+					mipt_desc: "Moscow | Leading physics and technology research center",
+					mipt_program: "Computer Science and Engineering",
+					kfu_desc: "Kazan | Top university in Volga region",
+					kfu_program: "Software Engineering",
+					knrtu_desc: "Kazan | Specialized in technology and innovation",
+					knrtu_program: "Information Systems and Technologies",
+					program_label: "Program:",
+
+					// Projects
+					projects_title: "My Projects",
+					project1_title: "Number System Converter",
+					project1_desc:
+						"A web application that converts between binary, octal, decimal, and hexadecimal number systems with real-time updates and validation.",
+					project2_title: "Study Hub",
+					project2_desc:
+						"Educational web application featuring top 3 revision websites for school exams with organized resources, progress tracking, and study tools.",
+					project3_title: "Chatfuel Chatbot Project",
+					project3_desc:
+						"Lead generation chatbot created during Coursera certification, demonstrating automation and AI integration skills.",
+					live_demo: "Live Demo",
+					github: "GitHub",
+					view_certificate: "View Certificate",
+
+					// Skills
+					skills_title: "Technical Skills",
+					programming: "Programming",
+					tools_platforms: "Tools & Platforms",
+					languages_sec: "Languages",
+
+					// Certificates
+					certificates_title: "Certifications & Achievements",
+					coursera_certs: "Coursera Certificates",
+					coursera_desc: "Python, Game Development, SEO, Chatbots, 3D Modeling",
+					russian_house: "Русский Дом Events",
+					russian_house_desc: "Russian culture workshops and round tables",
+					national_comps: "National Competitions",
+					national_comps_desc: "Technological projects & IT competitions",
+					gomycode: "GoMyCode Workshops",
+					gomycode_desc: "Python, Soft Skills & Marketing",
+					recommendation: "Recommendation Letter",
+					recommendation_desc:
+						"From President of Tunisian Association of Russian Language Teachers",
+					international: "International Project",
+					international_desc:
+						'"Tunisia: Digital Innovation Era" with Penza State University',
+
+					// Motivation
+					motivation_title: "My Motivation",
+					motivation_p1:
+						"I am passionate about computer science because it represents the future of innovation and problem-solving. The ability to create solutions that can impact millions of people drives my interest in this field.",
+					motivation_quote:
+						'"I chose Russia for my higher education because of its world-renowned technical universities, strong mathematical foundation in education, and unique approach to computer science that combines theoretical depth with practical application."',
+					motivation_p2:
+						"Russia's education system has produced some of the world's top programmers and scientists. I am particularly drawn to the Russian approach to algorithm development and system design. My goal is to contribute to the field of artificial intelligence and software engineering, creating innovative solutions for global challenges.",
+					motivation_p3:
+						"My experience with Russian culture through Русский Дом events and my Russian language studies have further solidified my decision to pursue my education in Russia. I believe that studying in Russia will not only provide me with excellent technical skills but also a unique cultural perspective that will shape me into a globally-minded professional.",
+
+					// Contact
+					contact_title: "Contact Information",
+					get_in_touch: "Get In Touch",
+					quick_message: "Quick Message",
+					your_name: "Your Name",
+					your_email: "Your Email",
+					your_message: "Your Message",
+					send_message: "Send Message",
+					education_label: "Education",
+					education_text: "Secondary School Diploma in Computer Science",
+
+					// Footer
+					footer_copyright: "© 2025 Skander Larbi. All rights reserved.",
+					footer_portfolio: "Portfolio for Russian University Applications",
+					footer_made_with:
+						"Made with passion for computer science and Russian education",
+				},
+
+				ru: {
+					// Navigation
+					nav_home: "Главная",
+					nav_universities: "Университеты",
+					nav_projects: "Проекты",
+					nav_skills: "Навыки",
+					nav_certificates: "Сертификаты",
+					nav_motivation: "Мотивация",
+					nav_contact: "Контакты",
+
+					// Hero section
+					hero_title: "Скандер Ларби",
+					hero_subtitle:
+						"Будущий студент компьютерных наук | Абитуриент российских университетов",
+					hero_description:
+						"Выпускник тунисской средней школы, специализирующийся на компьютерных науках, с более чем 15 профессиональными сертификатами. Увлечён технологиями и русской культурой, подаёт заявки в ведущие российские университеты на бакалавриат по компьютерным наукам.",
+					btn_view_projects: "Посмотреть проекты",
+					btn_contact_me: "Связаться со мной",
+
+					// Universities
+					universities_title: "Целевые российские университеты",
+					choice_1: "Выбор №1",
+					choice_2: "Выбор №2",
+					choice_3: "Выбор №3",
+					itmo_desc:
+						"Санкт-Петербург | Мировой лидер в области компьютерных наук и фотоники",
+					itmo_program: "Бакалавр компьютерных наук",
+					hse_desc:
+						"Москва | Ведущий университет социальных и компьютерных наук",
+					hse_program: "Наука о данных и бизнес-аналитика",
+					spbu_desc:
+						"Санкт-Петербург | Один из старейших и самых престижных университетов России",
+					spbu_program: "Прикладная математика и компьютерные науки",
+					mipt_desc:
+						"Москва | Ведущий центр исследований в области физики и технологий",
+					mipt_program: "Компьютерные науки и инженерия",
+					kfu_desc: "Казань | Лучший университет Поволжского региона",
+					kfu_program: "Программная инженерия",
+					knrtu_desc: "Казань | Специализируется на технологиях и инновациях",
+					knrtu_program: "Информационные системы и технологии",
+					program_label: "Программа:",
+
+					// Projects
+					projects_title: "Мои проекты",
+					project1_title: "Конвертер систем счисления",
+					project1_desc:
+						"Веб-приложение для преобразования между двоичной, восьмеричной, десятичной и шестнадцатеричной системами счисления с обновлением в реальном времени и проверкой.",
+					project2_title: "Учебный центр",
+					project2_desc:
+						"Образовательное веб-приложение с тремя лучшими сайтами для подготовки к школьным экзаменам, организованными ресурсами, отслеживанием прогресса и учебными инструментами.",
+					project3_title: "Проект чат-бота Chatfuel",
+					project3_desc:
+						"Чат-бот для генерации лидов, созданный во время сертификации Coursera, демонстрирующий навыки автоматизации и интеграции ИИ.",
+					live_demo: "Живое демо",
+					github: "GitHub",
+					view_certificate: "Посмотреть сертификат",
+
+					// Skills
+					skills_title: "Технические навыки",
+					programming: "Программирование",
+					tools_platforms: "Инструменты и платформы",
+					languages_sec: "Языки",
+
+					// Certificates
+					certificates_title: "Сертификаты и достижения",
+					coursera_certs: "Сертификаты Coursera",
+					coursera_desc:
+						"Python, разработка игр, SEO, чат-боты, 3D-моделирование",
+					russian_house: "Мероприятия Русского Дома",
+					russian_house_desc:
+						"Мастер-классы и круглые столы по русской культуре",
+					national_comps: "Национальные конкурсы",
+					national_comps_desc: "Технологические проекты и IT-соревнования",
+					gomycode: "Мастер-классы GoMyCode",
+					gomycode_desc: "Python, гибкие навыки и маркетинг",
+					recommendation: "Рекомендательное письмо",
+					recommendation_desc:
+						"От президента Тунисской ассоциации преподавателей русского языка и литературы",
+					international: "Международный проект",
+					international_desc:
+						'"Тунис: Эпоха цифровых инноваций" с Пензенским государственным университетом',
+
+					// Motivation
+					motivation_title: "Моя мотивация",
+					motivation_p1:
+						"Я увлечён компьютерными науками, потому что они представляют будущее инноваций и решения проблем. Возможность создавать решения, которые могут повлиять на миллионы людей, стимулирует мой интерес к этой области.",
+					motivation_quote:
+						'"Я выбрал Россию для своего высшего образования из-за её всемирно известных технических университетов, сильной математической базы в образовании и уникального подхода к компьютерным наукам, который сочетает теоретическую глубину с практическим применением."',
+					motivation_p2:
+						"Система образования России подготовила некоторых из лучших программистов и учёных мира. Меня особенно привлекает российский подход к разработке алгоритмов и проектированию систем. Моя цель — внести вклад в область искусственного интеллекта и программной инженерии, создавая инновационные решения для глобальных проблем.",
+					motivation_p3:
+						"Мой опыт знакомства с русской культурой через мероприятия Русского Дома и изучение русского языка укрепили моё решение получить образование в России. Я считаю, что учёба в России не только даст мне отличные технические навыки, но и уникальную культурную перспективу, которая сформирует меня как профессионала с глобальным мышлением.",
+
+					// Contact
+					contact_title: "Контактная информация",
+					get_in_touch: "Связаться",
+					quick_message: "Быстрое сообщение",
+					your_name: "Ваше имя",
+					your_email: "Ваш email",
+					your_message: "Ваше сообщение",
+					send_message: "Отправить сообщение",
+					education_label: "Образование",
+					education_text: "Аттестат средней школы по компьютерным наукам",
+
+					// Footer
+					footer_copyright: "© 2025 Скандер Ларби. Все права защищены.",
+					footer_portfolio:
+						"Портфолио для поступления в российские университеты",
+					footer_made_with:
+						"Сделано с любовью к компьютерным наукам и российскому образованию",
+				},
+			};
+
+			// Language switcher with actual translation
+			document.querySelectorAll(".lang-btn").forEach((btn) => {
+				btn.addEventListener("click", function () {
+					const lang = this.textContent === "RU" ? "ru" : "en";
+
+					// Update active button
+					document
+						.querySelectorAll(".lang-btn")
+						.forEach((b) => b.classList.remove("active"));
+					this.classList.add("active");
+
+					// Update page title
+					document.title =
+						lang === "ru"
+							? "Скандер Ларби | Портфолио для российских университетов"
+							: "Skander Larbi | Portfolio for Russian Universities";
+
+					// Apply translations
+					applyTranslation(lang);
+				});
+			});
+
+			// Function to apply translations
+			function applyTranslation(lang) {
+				const dict = translations[lang];
+				if (!dict) return;
+
+				// Navigation
+				document.querySelectorAll(".nav-links a").forEach((link, index) => {
+					const keys = [
+						"nav_home",
+						"nav_universities",
+						"nav_projects",
+						"nav_skills",
+						"nav_certificates",
+						"nav_motivation",
+						"nav_contact",
+					];
+					if (dict[keys[index]]) link.textContent = dict[keys[index]];
+				});
+
+				// Hero section
+				translateElement(".hero h1", "hero_title", dict);
+				translateElement(".hero-subtitle", "hero_subtitle", dict);
+				translateElement(".hero p", "hero_description", dict);
+				translateElement(".btn-primary", "btn_view_projects", dict);
+				translateElement(".btn-secondary", "btn_contact_me", dict);
+
+				// Universities
+				translateElement(".section-title", "universities_title", dict);
+				translateElement(".university-rank:nth-child(1)", "choice_1", dict);
+				translateElement(".university-rank:nth-child(2)", "choice_2", dict);
+				translateElement(".university-rank:nth-child(3)", "choice_3", dict);
+
+				// University descriptions and programs
+				const uniElements = [
+					{
+						selector: ".university-card:nth-child(1) p:nth-child(3)",
+						key: "itmo_desc",
+					},
+					{
+						selector: ".university-card:nth-child(1) p:nth-child(4) strong",
+						key: "program_label",
+					},
+					{
+						selector: ".university-card:nth-child(1) p:nth-child(4)",
+						regex: /Program: (.+)/,
+						key: "itmo_program",
+					},
+					{
+						selector: ".university-card:nth-child(2) p:nth-child(3)",
+						key: "hse_desc",
+					},
+					{
+						selector: ".university-card:nth-child(2) p:nth-child(4)",
+						regex: /Program: (.+)/,
+						key: "hse_program",
+					},
+					{
+						selector: ".university-card:nth-child(3) p:nth-child(3)",
+						key: "spbu_desc",
+					},
+					{
+						selector: ".university-card:nth-child(3) p:nth-child(4)",
+						regex: /Program: (.+)/,
+						key: "spbu_program",
+					},
+					{
+						selector: ".university-card:nth-child(4) p:nth-child(2)",
+						key: "mipt_desc",
+					},
+					{
+						selector: ".university-card:nth-child(4) p:nth-child(3)",
+						regex: /Program: (.+)/,
+						key: "mipt_program",
+					},
+					{
+						selector: ".university-card:nth-child(5) p:nth-child(2)",
+						key: "kfu_desc",
+					},
+					{
+						selector: ".university-card:nth-child(5) p:nth-child(3)",
+						regex: /Program: (.+)/,
+						key: "kfu_program",
+					},
+					{
+						selector: ".university-card:nth-child(6) p:nth-child(2)",
+						key: "knrtu_desc",
+					},
+					{
+						selector: ".university-card:nth-child(6) p:nth-child(3)",
+						regex: /Program: (.+)/,
+						key: "knrtu_program",
+					},
+				];
+
+				uniElements.forEach((item) => {
+					const el = document.querySelector(item.selector);
+					if (el && dict[item.key]) {
+						if (item.regex) {
+							el.textContent = dict["program_label"] + " " + dict[item.key];
+						} else {
+							el.textContent = dict[item.key];
+						}
+					}
+				});
+
+				// Update all "Program:" labels
+				document.querySelectorAll("strong").forEach((strong) => {
+					if (strong.textContent.includes("Program:")) {
+						strong.textContent = dict["program_label"];
+					}
+				});
+
+				// Projects
+				translateElement("#projects .section-title", "projects_title", dict);
+				translateElement(
+					".project-card:nth-child(1) h3",
+					"project1_title",
+					dict
+				);
+				translateElement(".project-card:nth-child(1) p", "project1_desc", dict);
+				translateElement(
+					".project-card:nth-child(2) h3",
+					"project2_title",
+					dict
+				);
+				translateElement(".project-card:nth-child(2) p", "project2_desc", dict);
+				translateElement(
+					".project-card:nth-child(3) h3",
+					"project3_title",
+					dict
+				);
+				translateElement(".project-card:nth-child(3) p", "project3_desc", dict);
+
+				// Project links
+				document.querySelectorAll(".project-link").forEach((link) => {
+					if (link.textContent.includes("Live Demo"))
+						translateElementText(link, "live_demo", dict);
+					if (link.textContent.includes("GitHub"))
+						translateElementText(link, "github", dict);
+					if (link.textContent.includes("View Certificate"))
+						translateElementText(link, "view_certificate", dict);
+				});
+
+				// Skills
+				translateElement("#skills .section-title", "skills_title", dict);
+				translateElement(
+					".skill-category:nth-child(1) h3",
+					"programming",
+					dict
+				);
+				translateElement(
+					".skill-category:nth-child(2) h3",
+					"tools_platforms",
+					dict
+				);
+				translateElement(
+					".skill-category:nth-child(3) h3",
+					"languages_sec",
+					dict
+				);
+
+				// Certificates
+				translateElement(
+					"#certificates .section-title",
+					"certificates_title",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(1) h3",
+					"coursera_certs",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(1) p",
+					"coursera_desc",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(2) h3",
+					"russian_house",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(2) p",
+					"russian_house_desc",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(3) h3",
+					"national_comps",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(3) p",
+					"national_comps_desc",
+					dict
+				);
+				translateElement(".certificate-card:nth-child(4) h3", "gomycode", dict);
+				translateElement(
+					".certificate-card:nth-child(4) p",
+					"gomycode_desc",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(5) h3",
+					"recommendation",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(5) p",
+					"recommendation_desc",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(6) h3",
+					"international",
+					dict
+				);
+				translateElement(
+					".certificate-card:nth-child(6) p",
+					"international_desc",
+					dict
+				);
+
+				// Motivation
+				translateElement(
+					"#motivation .section-title",
+					"motivation_title",
+					dict
+				);
+				translateElement(
+					".motivation-content p:nth-child(1)",
+					"motivation_p1",
+					dict
+				);
+				translateElement(".quote", "motivation_quote", dict);
+				translateElement(
+					".motivation-content p:nth-child(3)",
+					"motivation_p2",
+					dict
+				);
+				translateElement(
+					".motivation-content p:nth-child(4)",
+					"motivation_p3",
+					dict
+				);
+
+				// Contact
+				translateElement("#contact .section-title", "contact_title", dict);
+				translateElement(".contact-info h3", "get_in_touch", dict);
+				translateElement(".contact-form h3", "quick_message", dict);
+				translateElement(
+					".contact-item:nth-child(5) strong",
+					"education_label",
+					dict
+				);
+				translateElement(
+					".contact-item:nth-child(5) p",
+					"education_text",
+					dict
+				);
+				translateElement('button[type="submit"]', "send_message", dict);
+
+				// Form placeholders
+				document.querySelectorAll("input[placeholder]").forEach((input) => {
+					const placeholder = input.placeholder;
+					if (placeholder.includes("Your Name"))
+						input.placeholder = dict["your_name"];
+					if (placeholder.includes("Your Email"))
+						input.placeholder = dict["your_email"];
+				});
+				document
+					.querySelectorAll("textarea[placeholder]")
+					.forEach((textarea) => {
+						if (textarea.placeholder.includes("Your Message"))
+							textarea.placeholder = dict["your_message"];
+					});
+
+				// Footer
+				translateElement("footer p:nth-child(1)", "footer_copyright", dict);
+				translateElement("footer p:nth-child(2)", "footer_portfolio", dict);
+				translateElement("footer p:nth-child(3)", "footer_made_with", dict);
+			}
+
+			// Helper functions
+			function translateElement(selector, key, dict) {
+				const el = document.querySelector(selector);
+				if (el && dict[key]) {
+					el.textContent = dict[key];
+				}
+			}
+
+			function translateElementText(element, key, dict) {
+				if (element && dict[key]) {
+					const icon = element.querySelector("i");
+					if (icon) {
+						element.innerHTML = icon.outerHTML + " " + dict[key];
+					} else {
+						element.textContent = dict[key];
+					}
+				}
+			}
+			// ==================== END TRANSLATION ====================
+
+			// Animate on scroll
+			const animateElements = document.querySelectorAll(".animate-on-scroll");
+
+			const observer = new IntersectionObserver(
+				(entries) => {
+					entries.forEach((entry) => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add("visible");
+
+							// Animate skill bars
+							if (entry.target.classList.contains("skill-progress")) {
+								const width = entry.target.getAttribute("data-width");
+								entry.target.style.width = width + "%";
+							}
+						}
+					});
+				},
+				{ threshold: 0.1 }
+			);
+
+			animateElements.forEach((el) => observer.observe(el));
+
+			// Animate skill bars separately
+			const skillBars = document.querySelectorAll(".skill-progress");
+			skillBars.forEach((bar) => {
+				observer.observe(bar);
+			});
+
+			// Form submission
+			document
+				.getElementById("contactForm")
+				.addEventListener("submit", function (e) {
+					e.preventDefault();
+					alert(
+						"Thank you for your message! I will respond as soon as possible."
+					);
+					this.reset();
+				});
+
+			// Smooth scrolling for navigation links
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener("click", function (e) {
+					e.preventDefault();
+
+					const targetId = this.getAttribute("href");
+					if (targetId === "#") return;
+
+					const targetElement = document.querySelector(targetId);
+					if (targetElement) {
+						window.scrollTo({
+							top: targetElement.offsetTop - 80,
+							behavior: "smooth",
+						});
+
+						// Close mobile menu if open
+						if (window.innerWidth <= 768) {
+							document.querySelector(".nav-links").style.display = "none";
+						}
+					}
+				});
+			});
+
+			// Initialize skill bars with animation
+			window.addEventListener("load", function () {
+				// Trigger animation for elements already in view
+				animateElements.forEach((el) => {
+					const rect = el.getBoundingClientRect();
+					if (rect.top < window.innerHeight && rect.bottom >= 0) {
+						el.classList.add("visible");
+
+						if (el.classList.contains("skill-progress")) {
+							const width = el.getAttribute("data-width");
+							el.style.width = width + "%";
+						}
+					}
+				});
+			});
+		</script>
+	</body>
+</html>
