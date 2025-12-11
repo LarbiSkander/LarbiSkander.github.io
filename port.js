@@ -25,6 +25,7 @@ const translations = {
 		filter_all: "All Events",
 		filter_russian_house: "Русский Дом",
 		filter_competitions: "Competitions",
+		filter_semi: "semi mararthon",
 
 		// Hero section
 		hero_title: "Skander Larbi",
@@ -104,6 +105,8 @@ const translations = {
 		motivation_p3:
 			"My experience with Russian culture through Русский Дом events and my Russian language studies have further solidified my decision to pursue my education in Russia. I believe that studying in Russia will not only provide me with excellent technical skills but also a unique cultural perspective that will shape me into a globally-minded professional.",
 		//gallery
+		gallery_event0_title: "semi-marathon comar",
+		gallery_event0_desc: "Tunis | November 2025",
 		gallery_event1_title:
 			"Storyboarding Workshop: Learning Russian Through Creativity and Creation",
 		gallery_event1_desc: "Русский Дом Tunis | January 2025",
@@ -162,6 +165,7 @@ const translations = {
 		filter_all: "Все мероприятия",
 		filter_russian_house: "Русский Дом",
 		filter_competitions: "Соревнования",
+		filter_semi: "полумарафон",
 
 		// Hero section
 		hero_title: "Скандер Ларби",
@@ -243,6 +247,8 @@ const translations = {
 		motivation_p3:
 			"Мой опыт знакомства с русской культурой через мероприятия Русского Дома и изучение русского языка укрепили моё решение получить образование в России. Я считаю, что учёба в России не только даст мне отличные технические навыки, но и уникальную культурную перспективу, которая сформирует меня как профессионала с глобальным мышлением.",
 		//gallery
+		gallery_event0_title: "полумарафон COMAR",
+		gallery_event0_desc: "Тунис | Ноябрь 2025",
 		gallery_event1_title:
 			"Мастерская раскадровки: изучение русского языка через творчество и созидание",
 		gallery_event1_desc: "Русский Дом Тунис | Январь 2025",
@@ -826,3 +832,9 @@ window.addEventListener("resize", () => {
 		navLinks.style.display = "none";
 	}
 });
+function badel() {
+	document.getElementById("semi").innerHTML = "полумарафон";
+}
+function badel2() {
+	document.getElementById("semi").innerHTML = "semi marathon";
+}
