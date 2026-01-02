@@ -10,7 +10,6 @@ const translations = {
 	en: {
 		// Navigation
 		nav_home: "Home",
-		nav_universities: "Universities",
 		nav_projects: "Projects",
 		nav_skills: "Skills",
 		nav_certificates: "Certificates",
@@ -101,7 +100,7 @@ const translations = {
 		motivation_quote:
 			'"I chose Russia for my higher education because of its world-renowned technical universities, strong mathematical foundation in education, and unique approach to computer science that combines theoretical depth with practical application."',
 		motivation_p2:
-			"Russia's education system has produced some of the world's top programmers and scientists. I am particularly drawn to the Russian approach to algorithm development and system design. My goal is to contribute to the field of artificial intelligence and software engineering, creating innovative solutions for global challenges.",
+			"Russia’s education system has a long-standing tradition of excellence in producing world-class programmers and scientists. I am particularly drawn to the Russian approach to algorithm development and system design. My goal is to contribute to the field of artificial intelligence and software engineering by creating innovative solutions to global challenges.",
 		motivation_p3:
 			"My experience with Russian culture through Русский Дом events and my Russian language studies have further solidified my decision to pursue my education in Russia. I believe that studying in Russia will not only provide me with excellent technical skills but also a unique cultural perspective that will shape me into a globally-minded professional.",
 		//gallery
@@ -150,7 +149,6 @@ const translations = {
 	ru: {
 		// Navigation
 		nav_home: "Главная",
-		nav_universities: "Университеты",
 		nav_projects: "Проекты",
 		nav_skills: "Навыки",
 		nav_certificates: "Сертификаты",
@@ -243,7 +241,7 @@ const translations = {
 		motivation_quote:
 			'"Я выбрал Россию для своего высшего образования из-за её всемирно известных технических университетов, сильной математической базы в образовании и уникального подхода к компьютерным наукам, который сочетает теоретическую глубину с практическим применением."',
 		motivation_p2:
-			"Система образования России воспитала значительное число ведущих мировых программистов и учёных. Меня особенно привлекает её методический подход к разработке алгоритмов и проектированию систем. Моя цель — использовать этот подход, чтобы внести вклад в области искусственного интеллекта и программной инженерии, создавая инновационные решения для сложных глобальных проблем.",
+			"Система образования России имеет многолетнюю традицию высокого уровня подготовки программистов и учёных мирового класса, меня особенно привлекает российский подход к разработке алгоритмов и проектированию сложных систем, а моей целью является внесение вклада в развитие искусственного интеллекта и программной инженерии путём создания инновационных решений для глобальных задач.",
 		motivation_p3:
 			"Мой опыт знакомства с русской культурой через мероприятия Русского Дома и изучение русского языка укрепили моё решение получить образование в России. Я считаю, что учёба в России не только даст мне отличные технические навыки, но и уникальную культурную перспективу, которая сформирует меня как профессионала с глобальным мышлением.",
 		//gallery
@@ -323,7 +321,6 @@ function applyTranslation(lang) {
 	document.querySelectorAll(".nav-links a").forEach((link, index) => {
 		const keys = [
 			"nav_home",
-			"nav_universities",
 			"nav_projects",
 			"nav_skills",
 			"nav_certificates",
@@ -350,94 +347,6 @@ function applyTranslation(lang) {
 	translateElement(".hero p", "hero_description", dict);
 	translateElement(".btn-primary", "btn_view_projects", dict);
 	translateElement(".btn-secondary", "btn_contact_me", dict);
-
-	// Universities
-	translateElement("#universities .section-title", "universities_title", dict);
-
-	// University ranks
-	document.querySelectorAll(".university-rank").forEach((rank, index) => {
-		const keys = ["choice_1", "choice_2", "choice_3"];
-		if (dict[keys[index]]) rank.textContent = dict[keys[index]];
-	});
-
-	// University descriptions and programs
-	const uniElements = [
-		{
-			selector: ".university-card:nth-child(1) p:nth-child(3)",
-			key: "itmo_desc",
-		},
-		{
-			selector: ".university-card:nth-child(1) p:nth-child(4) strong",
-			key: "program_label",
-		},
-		{
-			selector: ".university-card:nth-child(1) p:nth-child(4)",
-			key: "itmo_program",
-			hasProgram: true,
-		},
-		{
-			selector: ".university-card:nth-child(2) p:nth-child(3)",
-			key: "hse_desc",
-		},
-		{
-			selector: ".university-card:nth-child(2) p:nth-child(4)",
-			key: "hse_program",
-			hasProgram: true,
-		},
-		{
-			selector: ".university-card:nth-child(3) p:nth-child(3)",
-			key: "spbu_desc",
-		},
-		{
-			selector: ".university-card:nth-child(3) p:nth-child(4)",
-			key: "spbu_program",
-			hasProgram: true,
-		},
-		{
-			selector: ".university-card:nth-child(4) p:nth-child(2)",
-			key: "mipt_desc",
-		},
-		{
-			selector: ".university-card:nth-child(4) p:nth-child(3)",
-			key: "mipt_program",
-			hasProgram: true,
-		},
-		{
-			selector: ".university-card:nth-child(5) p:nth-child(2)",
-			key: "kfu_desc",
-		},
-		{
-			selector: ".university-card:nth-child(5) p:nth-child(3)",
-			key: "kfu_program",
-			hasProgram: true,
-		},
-		{
-			selector: ".university-card:nth-child(6) p:nth-child(2)",
-			key: "knrtu_desc",
-		},
-		{
-			selector: ".university-card:nth-child(6) p:nth-child(3)",
-			key: "knrtu_program",
-			hasProgram: true,
-		},
-	];
-
-	uniElements.forEach((item) => {
-		const el = document.querySelector(item.selector);
-		if (el && dict[item.key]) {
-			if (item.hasProgram) {
-				// Replace only the program text after "Program:"
-				const currentText = el.textContent;
-				if (currentText.includes("Program:")) {
-					el.textContent = dict["program_label"] + " " + dict[item.key];
-				} else if (currentText.includes("Программа:")) {
-					el.textContent = dict["program_label"] + " " + dict[item.key];
-				}
-			} else {
-				el.textContent = dict[item.key];
-			}
-		}
-	});
 
 	// Projects
 	translateElement("#projects .section-title", "projects_title", dict);
