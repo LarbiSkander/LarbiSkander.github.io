@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -22,6 +22,7 @@
 					<ul class="nav-links">
 						<li><a href="#home">Home</a></li>
 						<li><a href="#projects">Projects</a></li>
+						<li><a href="#algorithme">Algorithme</a></li>
 						<li><a href="#skills">Skills</a></li>
 						<li><a href="#certificates">Certificates</a></li>
 						<li><a href="#motivation">Motivation</a></li>
@@ -70,12 +71,14 @@
 			<div class="container">
 				<h2 class="section-title">My Projects</h2>
 				<div class="project-grid">
+					<!-- Algorithme Language Card -->
+
 					<div class="project-card animate-on-scroll">
 						<div class="project-img">
 							<i class="fas fa-exchange-alt"></i>
 						</div>
 						<div class="project-content">
-							<h3>Number System Converter</h3>
+							<h3 data-translate="project1_title">Number System Converter</h3>
 							<p>
 								A web application that converts between binary, octal, decimal,
 								and hexadecimal number systems with real-time updates and
@@ -105,33 +108,85 @@
 							</div>
 						</div>
 					</div>
-					<div class="project-card animate-on-scroll">
-						<div class="project-img">
-							<i class="fas fa-graduation-cap"></i>
+					<div
+						class="project-card animate-on-scroll"
+						style="
+							border: 2px solid #e91e8c;
+							position: relative;
+							overflow: hidden;
+						"
+					>
+						<div
+							style="
+								position: absolute;
+								top: 14px;
+								left: 14px;
+								background: #e91e8c;
+								color: #fff;
+								font-size: 10px;
+								font-weight: 700;
+								letter-spacing: 1px;
+								padding: 3px 10px;
+								border-radius: 20px;
+								text-transform: uppercase;
+								z-index: 2;
+							"
+						>
+							Featured
+						</div>
+						<div
+							class="project-img"
+							style="
+								background: #000;
+								display: flex;
+								align-items: center;
+								justify-content: center;
+								padding: 10px 0;
+								min-height: 120px;
+							"
+						>
+							<img
+								src="Algo.png"
+								alt="Algorithme language logo"
+								style="height: 90px; object-fit: contain"
+							/>
 						</div>
 						<div class="project-content">
-							<h3>Study Hub</h3>
+							<h3 style="display: flex; align-items: center; gap: 8px">
+								Algorithme
+								<span
+									style="
+										font-family: monospace;
+										font-size: 11px;
+										font-weight: 400;
+										background: #111;
+										color: #e91e8c;
+										padding: 2px 8px;
+										border-radius: 4px;
+									"
+									>v0.1</span
+								>
+							</h3>
 							<p>
-								Educational web application featuring top 3 revision websites
-								for school exams with organized resources, progress tracking,
-								and study tools.
+								A custom-designed programming language with French-inspired
+								syntax, built entirely from scratch. Features a handwritten
+								lexer in Python that tokenizes source code into typed tokens —
+								keywords, identifiers, integers, floats, strings, assignment
+								operators, and symbols.
 							</p>
 							<div class="project-tech">
-								<span class="tech-tag">HTML</span>
-								<span class="tech-tag">CSS</span>
-								<span class="tech-tag">JavaScript</span>
-								<span class="tech-tag">UI/UX Design</span>
+								<span class="tech-tag">Python</span>
+								<span class="tech-tag">Lexer / Tokenizer</span>
+								<span class="tech-tag">Language Design</span>
+								<span class="tech-tag">Regex</span>
+								<span class="tech-tag">French Syntax</span>
 							</div>
 							<div class="project-links">
-								<a
-									href="https://larbiskander.github.io/studyhub/"
-									class="project-link"
-									target="_blank"
-								>
-									<i class="fas fa-external-link-alt"></i> Live Demo
+								<a href="#algorithme" class="project-link">
+									<i class="fas fa-terminal"></i> Learn More
 								</a>
 								<a
-									href="https://github.com/LarbiSkander/studyhub/blob/main/index.html"
+									href="https://github.com/LarbiSkander"
 									class="project-link"
 									target="_blank"
 								>
@@ -140,12 +195,13 @@
 							</div>
 						</div>
 					</div>
+
 					<div class="project-card animate-on-scroll">
 						<div class="project-img">
 							<i class="fas fa-robot"></i>
 						</div>
 						<div class="project-content">
-							<h3>Chatfuel Chatbot Project</h3>
+							<h3 data-translate="project3_title">Chatfuel Chatbot Project</h3>
 							<p>
 								Lead generation chatbot created during Coursera certification,
 								demonstrating automation and AI integration skills.
@@ -167,6 +223,493 @@
 							</div>
 						</div>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Algorithme Language Section -->
+		<section id="algorithme" class="projects" style="background: #0a0a0a">
+			<div class="container">
+				<h2 class="section-title" style="color: #fff">
+					Algorithme — My Programming Language
+				</h2>
+				<p
+					style="
+						text-align: center;
+						color: #aaa;
+						margin-bottom: 40px;
+						font-size: 1rem;
+					"
+				>
+					A language I designed and built from scratch — French-syntax keywords,
+					Python-powered lexer, full type system.
+				</p>
+
+				<!-- Two column layout: description + code -->
+				<div
+					style="
+						display: grid;
+						grid-template-columns: 1fr 1fr;
+						gap: 2rem;
+						margin-bottom: 2.5rem;
+					"
+				>
+					<!-- Left: description -->
+					<div style="color: #ccc">
+						<div
+							style="
+								display: flex;
+								align-items: center;
+								gap: 16px;
+								margin-bottom: 1.5rem;
+							"
+						>
+							<img src="Algo.png" alt="Algorithme logo" style="height: 60px" />
+							<div>
+								<h3 style="color: #fff; margin: 0">What is Algorithme?</h3>
+								<span
+									style="
+										font-family: monospace;
+										font-size: 11px;
+										color: #e91e8c;
+									"
+									>v0.1 · open source</span
+								>
+							</div>
+						</div>
+						<p style="line-height: 1.8; margin-bottom: 1rem">
+							Algorithme is a programming language I created entirely from
+							scratch. It uses
+							<strong style="color: #e91e8c">French keywords</strong> — making
+							it natural for Francophone learners — and is powered by a
+							handwritten
+							<strong style="color: #e91e8c">lexer in Python</strong> that
+							breaks source code into tokens the interpreter can understand.
+						</p>
+						<p style="line-height: 1.8; margin-bottom: 1.5rem">
+							The language supports the full set of programming constructs:
+							variables, arithmetic, input/output, loops (<code
+								style="color: #e91e8c"
+								>pour</code
+							>, <code style="color: #e91e8c">tant que</code>,
+							<code style="color: #e91e8c">repeter/jusqua</code>), conditionals
+							(<code style="color: #e91e8c">si/sinon/fin_si</code>), functions
+							with return types, procedures with pass-by-reference parameters
+							(<code style="color: #e91e8c">@</code>), and typed arrays.
+						</p>
+
+						<!-- Feature list -->
+						<div
+							style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px"
+						>
+							<div
+								style="
+									background: #1a1a1a;
+									border-radius: 8px;
+									padding: 12px 14px;
+									border-left: 3px solid #e91e8c;
+								"
+							>
+								<div
+									style="
+										color: #e91e8c;
+										font-size: 12px;
+										font-weight: 700;
+										margin-bottom: 4px;
+									"
+								>
+									LOOPS
+								</div>
+								<div
+									style="font-family: monospace; font-size: 11px; color: #aaa"
+								>
+									pour · tant que · repeter
+								</div>
+							</div>
+							<div
+								style="
+									background: #1a1a1a;
+									border-radius: 8px;
+									padding: 12px 14px;
+									border-left: 3px solid #7ec8e3;
+								"
+							>
+								<div
+									style="
+										color: #7ec8e3;
+										font-size: 12px;
+										font-weight: 700;
+										margin-bottom: 4px;
+									"
+								>
+									CONDITIONS
+								</div>
+								<div
+									style="font-family: monospace; font-size: 11px; color: #aaa"
+								>
+									si · sinon si · sinon · fin_si
+								</div>
+							</div>
+							<div
+								style="
+									background: #1a1a1a;
+									border-radius: 8px;
+									padding: 12px 14px;
+									border-left: 3px solid #98d982;
+								"
+							>
+								<div
+									style="
+										color: #98d982;
+										font-size: 12px;
+										font-weight: 700;
+										margin-bottom: 4px;
+									"
+								>
+									FUNCTIONS
+								</div>
+								<div
+									style="font-family: monospace; font-size: 11px; color: #aaa"
+								>
+									fonction · procedure · retourner
+								</div>
+							</div>
+							<div
+								style="
+									background: #1a1a1a;
+									border-radius: 8px;
+									padding: 12px 14px;
+									border-left: 3px solid #f5c842;
+								"
+							>
+								<div
+									style="
+										color: #f5c842;
+										font-size: 12px;
+										font-weight: 700;
+										margin-bottom: 4px;
+									"
+								>
+									TYPES
+								</div>
+								<div
+									style="font-family: monospace; font-size: 11px; color: #aaa"
+								>
+									entier · reel · chaine · boolean · tableau
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<!-- Right: full code example -->
+					<div>
+						<div
+							style="
+								background: #111;
+								border: 1px solid #2a2a2a;
+								border-radius: 10px;
+								overflow: hidden;
+							"
+						>
+							<div
+								style="
+									background: #1a1a1a;
+									padding: 10px 14px;
+									display: flex;
+									align-items: center;
+									gap: 8px;
+									border-bottom: 1px solid #2a2a2a;
+								"
+							>
+								<span
+									style="
+										width: 10px;
+										height: 10px;
+										border-radius: 50%;
+										background: #e24b4a;
+										display: inline-block;
+									"
+								></span>
+								<span
+									style="
+										width: 10px;
+										height: 10px;
+										border-radius: 50%;
+										background: #ef9f27;
+										display: inline-block;
+									"
+								></span>
+								<span
+									style="
+										width: 10px;
+										height: 10px;
+										border-radius: 50%;
+										background: #639922;
+										display: inline-block;
+									"
+								></span>
+								<span
+									style="
+										font-family: monospace;
+										font-size: 11px;
+										color: #555;
+										margin-left: auto;
+									"
+									>exemple.algo</span
+								>
+							</div>
+							<div
+								style="
+									padding: 16px 18px;
+									font-family: monospace;
+									font-size: 12.5px;
+									line-height: 2;
+									color: #ccc;
+									overflow-x: auto;
+								"
+							>
+								<span style="color: #555"
+									>-- Fonction qui retourne la somme</span
+								><br />
+								<span style="color: #e91e8c">fonction</span> somme(a,b:<span
+									style="color: #7ec8e3"
+									>entier</span
+								>):<span style="color: #7ec8e3">entier</span><br />
+								<span style="color: #e91e8c">debut</span><br />
+								&nbsp;&nbsp;<span style="color: #e91e8c">retourner</span> a +
+								b<br />
+								<span style="color: #e91e8c">fin</span><br /><br />
+								<span style="color: #555"
+									>-- Procedure avec passage par reference</span
+								><br />
+								<span style="color: #e91e8c">procedure</span> saisir(@x:<span
+									style="color: #7ec8e3"
+									>entier</span
+								>)<br />
+								<span style="color: #e91e8c">debut</span><br />
+								&nbsp;&nbsp;<span style="color: #e91e8c">repeter</span><br />
+								&nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #e91e8c">lire</span
+								>(x)<br />
+								&nbsp;&nbsp;<span style="color: #e91e8c">jusqua</span> x
+								<span style="color: #f5c842">mod</span> 2 = 0<br />
+								<span style="color: #e91e8c">fin</span><br /><br />
+								<span style="color: #555">-- Programme principal</span><br />
+								<span style="color: #e91e8c">pour</span> i
+								<span style="color: #e91e8c">de</span> 0
+								<span style="color: #e91e8c">a</span> 5
+								<span style="color: #e91e8c">faire</span><br />
+								&nbsp;&nbsp;<span style="color: #e91e8c">ecrire</span>(<span
+									style="color: #98d982"
+									>"iteration: "</span
+								>
+								+ i)<br />
+								<span style="color: #e91e8c">fin_pour</span><br /><br />
+								saisir(<span style="color: #f5c842">x</span>)<br /><br />
+								<span style="color: #e91e8c">si</span> x &gt; 0
+								<span style="color: #e91e8c">alors</span><br />
+								&nbsp;&nbsp;<span style="color: #e91e8c">ecrire</span>(<span
+									style="color: #98d982"
+									>"pair et positif"</span
+								>)<br />
+								<span style="color: #e91e8c">sinon</span><br />
+								&nbsp;&nbsp;<span style="color: #e91e8c">ecrire</span>(<span
+									style="color: #98d982"
+									>"pair et negatif"</span
+								>)<br />
+								<span style="color: #e91e8c">fin_si</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- How the Lexer Works -->
+				<h3 style="color: #fff; margin-bottom: 1.2rem; font-size: 1.2rem">
+					How the Lexer Works
+				</h3>
+				<p style="color: #aaa; margin-bottom: 1.5rem; line-height: 1.8">
+					The lexer is the first stage of the Algorithme interpreter. It reads
+					raw source code as a string and converts it into a list of typed
+					<strong style="color: #fff">tokens</strong> using Python's
+					<code style="color: #e91e8c">re</code> (regex) module. Each token has
+					a type and a value — the parser then uses these tokens to understand
+					the program's structure.
+				</p>
+
+				<!-- Token table -->
+				<div style="overflow-x: auto; margin-bottom: 2rem">
+					<table
+						style="width: 100%; border-collapse: collapse; font-size: 13px"
+					>
+						<thead>
+							<tr style="background: #1a1a1a; color: #fff">
+								<th
+									style="
+										padding: 12px 16px;
+										text-align: left;
+										border-bottom: 1px solid #333;
+									"
+								>
+									Token Type
+								</th>
+								<th
+									style="
+										padding: 12px 16px;
+										text-align: left;
+										border-bottom: 1px solid #333;
+									"
+								>
+									Example
+								</th>
+								<th
+									style="
+										padding: 12px 16px;
+										text-align: left;
+										border-bottom: 1px solid #333;
+									"
+								>
+									Description
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr style="border-bottom: 1px solid #1e1e1e">
+								<td style="padding: 11px 16px">
+									<span style="font-family: monospace; color: #e91e8c"
+										>KEYWORD</span
+									>
+								</td>
+								<td
+									style="
+										padding: 11px 16px;
+										font-family: monospace;
+										color: #aaa;
+									"
+								>
+									si, pour, fonction, lire
+								</td>
+								<td style="padding: 11px 16px; color: #888">
+									Reserved words of the language
+								</td>
+							</tr>
+							<tr style="background: #0f0f0f; border-bottom: 1px solid #1e1e1e">
+								<td style="padding: 11px 16px">
+									<span style="font-family: monospace; color: #f5c842"
+										>IDENTIFIER</span
+									>
+								</td>
+								<td
+									style="
+										padding: 11px 16px;
+										font-family: monospace;
+										color: #aaa;
+									"
+								>
+									x, somme, i, result
+								</td>
+								<td style="padding: 11px 16px; color: #888">
+									Variable and function names
+								</td>
+							</tr>
+							<tr style="border-bottom: 1px solid #1e1e1e">
+								<td style="padding: 11px 16px">
+									<span style="font-family: monospace; color: #7ec8e3"
+										>NUMBER</span
+									>
+								</td>
+								<td
+									style="
+										padding: 11px 16px;
+										font-family: monospace;
+										color: #aaa;
+									"
+								>
+									0, 42, -7
+								</td>
+								<td style="padding: 11px 16px; color: #888">Integer values</td>
+							</tr>
+							<tr style="background: #0f0f0f; border-bottom: 1px solid #1e1e1e">
+								<td style="padding: 11px 16px">
+									<span style="font-family: monospace; color: #7ec8e3"
+										>FLOAT</span
+									>
+								</td>
+								<td
+									style="
+										padding: 11px 16px;
+										font-family: monospace;
+										color: #aaa;
+									"
+								>
+									3.14, 0.5
+								</td>
+								<td style="padding: 11px 16px; color: #888">
+									Decimal number values
+								</td>
+							</tr>
+							<tr style="border-bottom: 1px solid #1e1e1e">
+								<td style="padding: 11px 16px">
+									<span style="font-family: monospace; color: #98d982"
+										>STRING</span
+									>
+								</td>
+								<td
+									style="
+										padding: 11px 16px;
+										font-family: monospace;
+										color: #aaa;
+									"
+								>
+									"bonjour", "iteration: "
+								</td>
+								<td style="padding: 11px 16px; color: #888">
+									Text between double quotes
+								</td>
+							</tr>
+							<tr style="background: #0f0f0f; border-bottom: 1px solid #1e1e1e">
+								<td style="padding: 11px 16px">
+									<span style="font-family: monospace; color: #ccc"
+										>ASSIGN</span
+									>
+								</td>
+								<td
+									style="
+										padding: 11px 16px;
+										font-family: monospace;
+										color: #aaa;
+									"
+								>
+									&lt;-
+								</td>
+								<td style="padding: 11px 16px; color: #888">
+									Assignment operator
+								</td>
+							</tr>
+							<tr>
+								<td style="padding: 11px 16px">
+									<span style="font-family: monospace; color: #aaa"
+										>SYMBOL</span
+									>
+								</td>
+								<td
+									style="
+										padding: 11px 16px;
+										font-family: monospace;
+										color: #aaa;
+									"
+								>
+									( ) , : + - * /
+								</td>
+								<td style="padding: 11px 16px; color: #888">
+									Operators and punctuation
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<!-- Back to top button -->
+				<div style="text-align: center">
+					<a href="#projects" class="btn btn-primary">← Back to Projects</a>
 				</div>
 			</div>
 		</section>
@@ -957,12 +1500,7 @@
 							>
 								<i class="fas fa-certificate"></i>
 							</a>
-							<a
-								href="cv.pdf"
-								class="social-link"
-								title="Download CV"
-								download
-							>
+							<a href="cv.pdf" class="social-link" title="Download CV" download>
 								<i class="fas fa-download"></i>
 							</a>
 						</div>
@@ -1040,4 +1578,3 @@
 		<script src="port.js"></script>
 	</body>
 </html>
-
