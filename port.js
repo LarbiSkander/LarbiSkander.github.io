@@ -15,6 +15,7 @@ const translations = {
 		nav_certificates: "Certificates",
 		nav_motivation: "Motivation",
 		nav_gallery: "Gallery",
+		nav_algorithme: "Algorithme",
 		nav_contact: "Contact",
 
 		// Gallery
@@ -154,6 +155,7 @@ const translations = {
 		nav_certificates: "Сертификаты",
 		nav_motivation: "Мотивация",
 		nav_gallery: "Галерея",
+		nav_algorithme: "Алгоритм",
 		nav_contact: "Контакты",
 
 		// Gallery
@@ -317,18 +319,10 @@ function applyTranslation(lang) {
 	const dict = translations[lang];
 	if (!dict) return;
 
-	// Navigation
-	document.querySelectorAll(".nav-links a").forEach((link, index) => {
-		const keys = [
-			"nav_home",
-			"nav_projects",
-			"nav_skills",
-			"nav_certificates",
-			"nav_motivation",
-			"nav_gallery",
-			"nav_contact",
-		];
-		if (dict[keys[index]]) link.textContent = dict[keys[index]];
+	// Navigation — uses data-translate so adding new links never breaks order
+	document.querySelectorAll(".nav-links a[data-translate]").forEach((link) => {
+		const key = link.getAttribute("data-translate");
+		if (dict[key]) link.textContent = dict[key];
 	});
 
 	// Gallery translations
@@ -348,14 +342,12 @@ function applyTranslation(lang) {
 	translateElement(".btn-primary", "btn_view_projects", dict);
 	translateElement(".btn-secondary", "btn_contact_me", dict);
 
-	// Projects
+	// Projects — uses data-translate attributes, immune to card reordering
 	translateElement("#projects .section-title", "projects_title", dict);
-	translateElement(".project-card:nth-child(1) h3", "project1_title", dict);
-	translateElement(".project-card:nth-child(1) p", "project1_desc", dict);
-	translateElement(".project-card:nth-child(2) h3", "project2_title", dict);
-	translateElement(".project-card:nth-child(2) p", "project2_desc", dict);
-	translateElement(".project-card:nth-child(3) h3", "project3_title", dict);
-	translateElement(".project-card:nth-child(3) p", "project3_desc", dict);
+	translateElement("[data-translate='project1_title']", "project1_title", dict);
+	translateElement("[data-translate='project1_desc']", "project1_desc", dict);
+	translateElement("[data-translate='project3_title']", "project3_title", dict);
+	translateElement("[data-translate='project3_desc']", "project3_desc", dict);
 
 	// Project links
 	document.querySelectorAll(".project-link").forEach((link) => {
@@ -390,7 +382,7 @@ function applyTranslation(lang) {
 	translateElement(
 		".certificate-card:nth-child(2) h3",
 		"uniathena_certs",
-		dict
+		dict,
 	);
 	translateElement(".certificate-card:nth-child(2) p", "uniathena_desc", dict);
 	translateElement(".certificate-card:nth-child(2) a", "uniathena_link", dict);
@@ -398,13 +390,13 @@ function applyTranslation(lang) {
 	translateElement(
 		".certificate-card:nth-child(3) p",
 		"russian_house_desc",
-		dict
+		dict,
 	);
 	translateElement(".certificate-card:nth-child(4) h3", "national_comps", dict);
 	translateElement(
 		".certificate-card:nth-child(4) p",
 		"national_comps_desc",
-		dict
+		dict,
 	);
 	translateElement(".certificate-card:nth-child(5) h3", "gomycode", dict);
 	translateElement(".certificate-card:nth-child(5) p", "gomycode_desc", dict);
@@ -412,7 +404,7 @@ function applyTranslation(lang) {
 	translateElement(
 		".certificate-card:nth-child(6) p",
 		"recommendation_desc",
-		dict
+		dict,
 	);
 
 	// Motivation
@@ -535,7 +527,7 @@ const observer = new IntersectionObserver(
 			}
 		});
 	},
-	{ threshold: 0.1 }
+	{ threshold: 0.1 },
 );
 
 animateElements.forEach((el) => observer.observe(el));
@@ -642,8 +634,8 @@ galleryItems.forEach((item, index) => {
 
 		filteredItems = Array.from(
 			document.querySelectorAll(
-				'.gallery-item[style*="display: block"], .gallery-item[style*="display:block"]'
-			)
+				'.gallery-item[style*="display: block"], .gallery-item[style*="display:block"]',
+			),
 		);
 		const currentFilteredIndex = filteredItems.indexOf(item);
 		currentImageIndex = currentFilteredIndex;
